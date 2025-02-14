@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<info>
+	<id>underwaterreport</id>
+	<name>Underwater Report</name>
+	<summary>Nextcloud Underwater Report</summary>
+	<description>
+	<![CDATA[Nextcloud Underwater Report]]>
+	</description>
+	<version>2.0.0</version>
+	<licence>MIT</licence>
+	<author mail="marwi.sopot@wp.pl" homepage="http://marcinwisniewski.freemyip.com">Marcin Wiśniewski</author>
+	<namespace>underwaterreport</namespace>
+	<category>tools</category>
+	<website>http://marcinwisniewski.freemyip.com</website>
+	<bugs>http://marcinwisniewski.freemyip.com/underwaterreport/issues</bugs>
+	<repository type="git">http://marcinwisniewski.freemyip.com/underwaterreport/</repository>
+	<dependencies>
+		<nextcloud min-version="29" max-version="31"/>
+	</dependencies>
+	<external-app>
+		<docker-install>
+			<registry>ghcr.io</registry>
+			<image>marwisopot/underwaterreport</image>
+			<image-tag>latest</image-tag>
+		</docker-install>
+		<routes>
+			<route>
+				<url>.*</url>
+				<verb>GET,POST,PUT,DELETE</verb>
+				<access_level>USER</access_level>
+				<headers_to_exclude>[]</headers_to_exclude>
+			</route>
+		</routes>
+		<environment-variables>
+			<variable>
+				<name>TEST_ENV_1</name>
+				<display-name>Test environment with default value</display-name>
+				<description>Test environment with default value</description>
+				<default>0</default>
+			</variable>
+			<variable>
+				<name>TEST_ENV_2</name>
+				<display-name>Test environment without default value</display-name>
+				<description>Test environment without default value</description>
+			</variable>
+		</environment-variables>
+	</external-app>
+</info>
