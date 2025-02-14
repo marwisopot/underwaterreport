@@ -1,0 +1,9 @@
+nc_py_api[app]>=0.17.1
+pygifsicle
+imageio
+opencv-python
+numpy
+docx
+openpyxl
+fastapi
+
