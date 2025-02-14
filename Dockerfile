@@ -14,5 +14,5 @@ ADD /ex_app/li[b] /ex_app/lib
 COPY --chmod=775 healthcheck.sh /
 
 WORKDIR /ex_app/lib
-ENTRYPOINT ["python3", "main.py"]
+ENTRYPOINT ["python", "main.py"]
 HEALTHCHECK --interval=2s --timeout=2s --retries=300 CMD /healthcheck.sh

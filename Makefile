@@ -5,6 +5,7 @@ APP_NAME := UnderwaterReport
 APP_VERSION := 1.0.0
 APP_SECRET := 12345
 APP_PORT := 9031
+GITHUB_USERNAME := marwisopot
 
 JSON_INFO := "{\"id\":\"$(APP_ID)\",\"name\":\"$(APP_NAME)\",\"daemon_config_name\":\"manual_install\",\"version\":\"$(APP_VERSION)\",\"secret\":\"$(APP_SECRET)\",\"port\":$(APP_PORT),\"routes\":[{\"url\":\".*\",\"verb\":\"GET, POST, PUT, DELETE\",\"access_level\":1,\"headers_to_exclude\":[]}]}"
 
@@ -31,7 +32,7 @@ help:
 .PHONY: build-push
 build-push:
 	docker login ghcr.io
-	docker buildx build --push --platform linux/arm64/v8,linux/amd64 --tag ghcr.io/$(GITHUB_USERNAME)/$(APP_ID):latest .
+	docker buildx build --push --platform linux --tag ghcr.io/$(GITHUB_USERNAME)/$(APP_ID):latest .
 
 .PHONY: run30
 run30:
