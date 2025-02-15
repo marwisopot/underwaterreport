@@ -13,6 +13,10 @@ ADD /ex_app/li[b] /ex_app/lib
 
 COPY --chmod=775 healthcheck.sh /
 
+# Copy entrypoint script into the container
+COPY --chmod=775 ex_app/lib/entrypoint.sh /ex_app/lib/entrypoint.sh
+
 WORKDIR /ex_app/lib
-ENTRYPOINT ["python", "main.py"]
+
+ENTRYPOINT ["entrypoint.sh"]
 HEALTHCHECK --interval=2s --timeout=2s --retries=300 CMD /healthcheck.sh
