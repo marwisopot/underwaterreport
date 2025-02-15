@@ -12,9 +12,13 @@ jobs:
 
   build:
     permissions: write-all
+
+
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker buildx build --push --platform linux --tag ghcr.io/marwisopot/underwaterreport:latest .
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
